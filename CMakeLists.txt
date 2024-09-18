@@ -3,4 +3,8 @@ find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 
 project(inzynierka)
 
-target_sources(app PRIVATE src/main.c)
+# Seems like "app" target is hardcoded and shouldn't be changed
+target_sources(app PRIVATE
+                src/main.c
+                src/external_sensors/temp_humid/temp_humid.c
+                src/external_sensors/external_sensors.c)
