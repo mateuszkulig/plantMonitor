@@ -6,9 +6,9 @@
 
 
 /**
- * @brief   Check if all sensors signal that they are ready to use
+ * @brief           Check if all sensors signal that they are ready to use
  * 
- * @return  int8_t Count of not ready devices
+ * @return int8_t   Count of not ready devices
  */
 uint8_t checkAllSensors();
 
@@ -23,7 +23,7 @@ struct device *getDeviceByName(char *name);
 
 
 /**
- * @brief   Read the data from DHT sensor and store its values in buffer
+ * @brief           Read the data from DHT sensor and store its values in buffer
  * 
  * @param buffer    Buffer to fill with readings
  * @return int8_t   0 for success, negative error number for failure
