@@ -13,6 +13,12 @@ int8_t readTemperatureAndHumidity(struct temperatureAndHumidityValues *buffer) {
     struct sensor_value temperature = {0};
     struct sensor_value humidity = {0};
     
+    // FIXME: Generic error code
+    if (dht == NULL) {
+        LOG_ERR("Failed to get the device");
+        return -1;
+    }
+
     ret = sensor_sample_fetch(dht);
     if (ret) {
         LOG_ERR("Sensor fetch failed: %d", ret);
