@@ -8,7 +8,7 @@ LOG_MODULE_REGISTER(extSensors, LOG_LEVEL_DBG);
  * 
  */
 static const struct device *deviceList[] = {
-    DEVICE_DT_GET_ONE(aosong_dht)
+    DEVICE_DT_GET(DT_ALIAS(dht11)),
 };
 
 /**
@@ -34,7 +34,7 @@ uint8_t checkAllSensors() {
 
 
 struct device *getDeviceByName(char *name) {
-    for (int i=0; i<deviceCount; ++i) {
+    for (size_t i=0; i<deviceCount; ++i) {
         if (name == deviceList[i]->name) {
             return deviceList[i];
         }
