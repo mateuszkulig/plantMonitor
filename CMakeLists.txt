@@ -6,5 +6,7 @@ project(inzynierka)
 # Seems like "app" target is hardcoded and shouldn't be changed
 target_sources(app PRIVATE
                 src/main.c
+                src/analog/analog.c
+                src/analog/analog_ranges/analog_ranges.c
                 src/external_sensors/temp_humid/temp_humid.c
                 src/external_sensors/external_sensors.c)
