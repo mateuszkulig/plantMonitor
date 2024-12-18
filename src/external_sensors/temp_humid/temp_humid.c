@@ -8,7 +8,7 @@ LOG_MODULE_REGISTER(extSensTempHumid, LOG_LEVEL_DBG);
 
 
 int8_t readTemperatureAndHumidity(struct temperatureAndHumidityValues *buffer) {
-    const struct device *dht = getDeviceByName("dht11");
+    const struct device *dht = getDeviceByName("dht22");
     int8_t              rc = 0;
     struct sensor_value temperature = {0};
     struct sensor_value humidity = {0};
