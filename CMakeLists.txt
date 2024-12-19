@@ -9,4 +9,5 @@ target_sources(app PRIVATE
                 src/analog/analog.c
                 src/analog/analog_ranges/analog_ranges.c
                 src/external_sensors/temp_humid/temp_humid.c
+                src/external_sensors/ambient_light/ambient_light.c
                 src/external_sensors/external_sensors.c)

@@ -9,6 +9,7 @@ LOG_MODULE_REGISTER(extSensors, LOG_LEVEL_DBG);
  */
 static const struct device *deviceList[] = {
     DEVICE_DT_GET(DT_ALIAS(dht)),
+    DEVICE_DT_GET_ONE(vishay_vcnl4040),
 };
 
 /**

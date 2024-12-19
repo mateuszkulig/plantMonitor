@@ -2,6 +2,24 @@
  *  Devicetree overlay for Nordic nRF5340 DK
  */
 
+ &i2c1 {
+	status = "okay";
+	compatible = "nordic,nrf-twim";
+	label = "i2c1";
+	clock-frequency = <I2C_BITRATE_STANDARD>;
+
+	// Ambient light sensor vcnl4040
+	vcnl4040@60 {
+		compatible = "vishay,vcnl4040";
+		reg = <0x60>;
+		int-gpios = <&gpio0 27 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+		led-current = <200>;
+		led-duty-cycle = <320>;
+		proximity-it = "8";
+		proximity-trigger = "close";
+		als-it = <640>;
+	};
+};
 
 &adc {
 	#address-cells = <1>;

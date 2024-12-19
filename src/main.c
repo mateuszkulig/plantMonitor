@@ -6,6 +6,8 @@
 int main(void)
 {
 	struct temperatureAndHumidityValues tempHumid = {0};
+	struct lightAndProximityValues		lightProxi = {0};
+	uint16_t							light = 0;
 	double 								soilMoisturePercentage = 0.0f;
 	uint8_t								brokenSensors = 0;
 
@@ -33,6 +35,14 @@ int main(void)
 		return 1;
 	} else {
 		printk("Soil moisture: %.1f RH%%\n", soilMoisturePercentage * 100);
+	}
+
+	if (readAmbientLightValue(&lightProxi)) {
+		printk("Error: cannot read light and proximity\n");
+		return 1;
+	} else {
+		printk("Ambient light: %d lux\n", lightProxi.light);
+		printk("Proximity value: %d \n", lightProxi.proximity);
 	}
 
 	return 0;
