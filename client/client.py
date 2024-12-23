@@ -30,10 +30,10 @@ callCounter = 0
 
 def printMeasurements():
     logger.info("")
-    logger.info(f"\t{sm.temperature=}")
-    logger.info(f"\t{sm.airHumidity=}")
-    logger.info(f"\t{sm.lightLevel=}")
-    logger.info(f"\t{sm.soilMoisture=}")
+    logger.info(f"\t{sm.temperature=} C")
+    logger.info(f"\t{sm.airHumidity=}% RH")
+    logger.info(f"\t{sm.lightLevel=} lux")
+    logger.info(f"\t{sm.soilMoisture=}% RH")
     logger.info("")
 
 def notificationHandler(characteristic: BleakGATTCharacteristic, data: bytearray):
