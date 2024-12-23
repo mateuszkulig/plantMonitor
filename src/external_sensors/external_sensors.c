@@ -36,11 +36,12 @@ uint8_t checkAllSensors() {
 
 const struct device *getDeviceByName(char *name) {
     for (size_t i=0; i<deviceCount; ++i) {
-        LOG_DBG("%s", deviceList[i]->name);
         if (name == deviceList[i]->name) {
+            LOG_DBG("%s", deviceList[i]->name);
             return deviceList[i];
         }
     }
 
+    LOG_ERR("Device with name %s not found", name);
     return NULL;
 }
