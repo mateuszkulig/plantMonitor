@@ -1,7 +1,11 @@
+# Default version set by nRF Connect SDK
 cmake_minimum_required(VERSION 3.20.0)
+
+# Zephyr RTOS
 find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 
-project(inzynierka)
+# Project name
+project(praca_inzynierska)
 
 # Seems like "app" target is hardcoded and shouldn't be changed
 target_sources(app PRIVATE

@@ -52,7 +52,7 @@ BT_CONN_CB_DEFINE(conn_callbacks) = {
  * @return int8_t 	0 on success, negative error number on fail
  */
 int8_t initBle() {
-	int rc = 0;
+	int8_t rc = 0;
 
 	LOG_DBG("Enabling BLE");
 	rc = bt_enable(NULL);

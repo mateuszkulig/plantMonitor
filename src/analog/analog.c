@@ -17,8 +17,9 @@ static const uint8_t adcChannelCount = ARRAY_SIZE(channel_cfgs);
 int8_t readAnalogSensor(enum sensorChannelIndex channel, uint16_t *buffer) {
     const uint8_t   adcSamples = 10;
     const uint8_t   adcResolution = 12;
+    const uint8_t   oversamplingValue = 8;
     uint16_t        adcReadBuffer[adcSamples][adcChannelCount];
-    uint8_t         rc = 0;
+    int8_t          rc = 0;
     int32_t         totalValue = 0;
 
     const struct adc_sequence_options options = {
@@ -31,7 +32,7 @@ int8_t readAnalogSensor(enum sensorChannelIndex channel, uint16_t *buffer) {
 		.buffer_size = sizeof(adcReadBuffer),
 		.resolution = adcResolution,
 		.options = &options,
-        .oversampling = 8,
+        .oversampling = oversamplingValue,
 	};
 
     sequence.channels |= BIT(channel_cfgs[channel].channel_id);

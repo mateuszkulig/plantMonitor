@@ -24,7 +24,8 @@ int main(void)
 	}
 
 	if (initBle()) {
-		printk("Error: cannot initialize BLE");
+		printk("Error: cannot initialize BLE\n");
+		return 1;
 	}
 
 	for (;;) {

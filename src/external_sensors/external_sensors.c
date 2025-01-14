@@ -8,7 +8,7 @@ LOG_MODULE_REGISTER(extSensors, LOG_LEVEL_DBG);
  * 
  */
 static const struct device *deviceList[] = {
-    DEVICE_DT_GET(DT_ALIAS(dht)),
+    DEVICE_DT_GET_ONE(aosong_dht),
     DEVICE_DT_GET_ONE(vishay_vcnl4040),
 };
 
@@ -16,7 +16,7 @@ static const struct device *deviceList[] = {
  * @brief Count of externally connected sensors
  * 
  */
-static const uint8_t deviceCount = sizeof(deviceList) / sizeof(deviceList[0]);
+static const uint8_t deviceCount = ARRAY_SIZE(deviceList);
 
 
 uint8_t checkAllSensors() {

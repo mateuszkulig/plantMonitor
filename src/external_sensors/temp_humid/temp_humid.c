@@ -24,7 +24,6 @@ int8_t readTemperatureAndHumidity(struct temperatureAndHumidityValues *buffer) {
         return rc;
     }
     
-    // FIXME: Weird looking code, maybe some better error handling would help
     rc = sensor_channel_get(dht, SENSOR_CHAN_AMBIENT_TEMP, &temperature);
     if (!rc) {
         rc = sensor_channel_get(dht, SENSOR_CHAN_HUMIDITY, &humidity);

@@ -101,7 +101,6 @@ BT_GATT_SERVICE_DEFINE(SERVICE_NAME,
 			       BT_GATT_PERM_READ, bleDataReadCallback, NULL, &bleData.soilMoisture),
     BT_GATT_CCC(characteristicConfigCallback,
 		    BT_GATT_PERM_READ | BT_GATT_PERM_WRITE)
-    
 );
 
 

@@ -7,8 +7,7 @@
 LOG_MODULE_REGISTER(extSensAmbientLight, LOG_LEVEL_DBG);
 
 
-int8_t readAmbientLightValue(struct lightAndProximityValues *buffer)
-{
+int8_t readAmbientLightValue(struct lightAndProximityValues *buffer) {
 	const struct device *vcnl = getDeviceByName("vcnl4040@60");
 	int8_t              rc = 0;
 	struct sensor_value light = {0};
@@ -26,11 +25,9 @@ int8_t readAmbientLightValue(struct lightAndProximityValues *buffer)
     }
 
 	rc = sensor_channel_get(vcnl, SENSOR_CHAN_PROX, &proximity);
-	if (rc) {
-        LOG_ERR("Sensor channel get failed: %d", rc);
-        return rc;
+	if (!rc) {
+        rc = sensor_channel_get(vcnl, SENSOR_CHAN_LIGHT, &light);
     }
-	rc = sensor_channel_get(vcnl, SENSOR_CHAN_LIGHT, &light);
 	if (rc) {
         LOG_ERR("Sensor channel get failed: %d", rc);
         return rc;
