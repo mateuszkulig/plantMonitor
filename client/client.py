@@ -52,7 +52,7 @@ def notificationHandler(characteristic: BleakGATTCharacteristic, data: bytearray
         case UUIDs.UUID_LIGHT:
             sm.lightLevel = decodedDouble
         case UUIDs.UUID_SOILMOIST:
-            sm.soilMoisture = decodedDouble
+            sm.soilMoisture = round(decodedDouble * 100, 2)
     
     callCounter += 1
     if not (callCounter % 4):
